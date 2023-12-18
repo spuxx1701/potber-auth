@@ -1,0 +1,16 @@
+:root {
+	--color-application-background: #060f15;
+	--color-accent: #00d9ff;
+
+	--color-text-default: #f1f1f1;
+	--color-text-subtle: #aeaeae;
+	--color-text-link: var(--color-text-subtle);
+	--color-text-highlighted: white;
+
+	--color-control-inactive: #142637;
+	--color-control-disabled: var(--color-post-background-primary);
+
+	--color-success: #1b7222;
+	--color-warning: #e08e2a;
+	--color-error: #871717;
+}

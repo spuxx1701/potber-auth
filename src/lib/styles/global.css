@@ -1,0 +1,57 @@
+@import 'colors.css';
+
+@font-face {
+	font-family: 'Pacifico';
+	src: url('/fonts/Pacifico-Regular.ttf');
+}
+
+:root {
+	--control-default-height: 45px;
+	--control-input-height: calc(var(--control-default-height) + 0.5rem);
+	--color-body: unset;
+}
+
+html {
+	height: 100svh;
+	width: 100svw;
+	background-color: var(--color-application-background);
+}
+
+html * {
+	transition:
+		color 200ms,
+		background-color 200ms,
+		filter 200ms,
+		border 200ms,
+		border-color 200ms,
+		font-size 200ms,
+		text-shadow 200ms,
+		transform 200ms,
+		scale 200ms,
+		opacity 200ms;
+	-webkit-tap-highlight-color: transparent !important;
+	color: var(--color-text-default);
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	background-color: var(--color-body);
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main {
+	max-width: min(400px, 90vw);
+	height: 100dvh;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: transparent;
+}
+
+a,
+a:visited {
+	color: var(--color-text-link);
+}
