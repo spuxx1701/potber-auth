@@ -30,7 +30,7 @@ Start by creating a pull request that changes the [list of allowed redirect URIs
 		name: 'my-app',
 		id: '6c4defe9-4e08-420a-90ab-dbce69906fef',
 		allowedRedirectUris: [
-			'https://my-app.com/auth/redirect'
+			'https://my-app.com/auth/callback'
 		]
 	}
 ```
@@ -44,7 +44,7 @@ Tthe `redirect_uri` is a web page that you want `potber-auth` to redirect the us
 When you want your users to sign in, redirect them to `potber-auth`. This step is called the **Authorization Request**. Using the example from earlier, the request would look like this:
 
 ```
-https://auth.potber.de/authorize?response_type=token&client_id=6c4defe9-4e08-420a-90ab-dbce69906fef&redirect_uri=https%3A%2F%2Fmy-app.com%2Fauth%2Fredirect
+https://auth.potber.de/authorize?response_type=token&client_id=6c4defe9-4e08-420a-90ab-dbce69906fef&redirect_uri=https%3A%2F%2Fmy-app.com%2Fauth%2Fcallback
 ```
 
 > [ℹ] Note that you will likely need to encode your URI. For example in JavaScript, you can use [encodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent).
@@ -58,7 +58,7 @@ Let's break down the **Authorization Request**:
 After the user has signed in, `potber-auth` will then redirect them back to your application using `redirect_uri`. This step is called the **Access Token Response**. Assuming the `redirect_uri` from above, the request will look like this:
 
 ```
-GET https://my-app.com/auth/redirect#access_token=...&token_type=bearer&expires_in=3600
+GET https://my-app.com/auth/callback#access_token=...&token_type=bearer&expires_in=3600
 ```
 
 Let's break down the **Access Token Response**:
