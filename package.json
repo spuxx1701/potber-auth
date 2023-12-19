@@ -12,6 +12,7 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "playwright test",
+		"test:e2e": "playwright test",
 		"lint": "prettier --check . && eslint . && svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"format": "prettier --write ."
 	},
