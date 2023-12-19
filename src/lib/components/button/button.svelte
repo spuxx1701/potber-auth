@@ -57,6 +57,10 @@
 		cursor: pointer;
 	}
 
+	button:not(:disabled):hover {
+		filter: var(--filter-control-hover);
+	}
+
 	button > :global(svg) {
 		margin-right: 0.5rem;
 	}

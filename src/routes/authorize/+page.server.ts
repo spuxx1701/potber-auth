@@ -43,7 +43,7 @@ export const actions = {
 		const data = await request.formData();
 		const username = data.get('username');
 		const password = data.get('password');
-		const lifetime = data.get('lifetime') ?? 3600;
+		const lifetime = data.get('lifetime');
 
 		if (!username || !password || !lifetime) {
 			error(500);

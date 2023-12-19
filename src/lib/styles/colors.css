@@ -13,4 +13,6 @@
 	--color-success: #1b7222;
 	--color-warning: #e08e2a;
 	--color-error: #871717;
+
+	--filter-control-hover: brightness(1.2);
 }

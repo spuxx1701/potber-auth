@@ -26,6 +26,13 @@ declare global {
 	namespace Login {
 		type State = 'active' | 'pending' | 'success' | 'failed' | 'none';
 	}
+
+	namespace Select {
+		interface Option {
+			label: string;
+			value: any;
+		}
+	}
 }
 
 export {};

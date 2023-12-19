@@ -6,6 +6,8 @@
 	import { enhance } from '$app/forms';
 	import SessionPanel from '$lib/features/session-panel/session-panel.svelte';
 	import { redirect } from '$lib/utils/client.utils';
+	import Select from '$lib/components/select/select.svelte';
+	import { defaultLifetimeOption, lifetimeOptions } from '$lib/config/login.config';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -54,6 +56,12 @@
 			>
 				<Input label="Username" type="text" name="username" required={true} />
 				<Input label="Passwort" type="password" name="password" required={true} />
+				<Select
+					name="lifetime"
+					label="Sitzungsdauer"
+					options={lifetimeOptions}
+					defaultOption={defaultLifetimeOption}
+				/>
 				<Button
 					variant="primary"
 					type="submit"

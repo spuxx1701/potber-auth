@@ -1,15 +1,10 @@
 <script>
-	// import { randomUUID } from 'crypto';
-
-	/**
-	 * @type {string}
-	 */
+	/** @type {string} */
 	export let label;
-
-	const componentId = 'foo';
+	const componentId = crypto.randomUUID();
 </script>
 
-<div>
+<div class="container">
 	<input
 		id={`${componentId}-input`}
 		placeholder=" "
@@ -21,7 +16,7 @@
 </div>
 
 <style>
-	div {
+	.container {
 		position: relative;
 		width: 100%;
 	}
@@ -38,6 +33,10 @@
 		font-size: 1em;
 	}
 
+	input:not(:disabled):hover {
+		filter: var(--filter-control-hover);
+	}
+
 	label {
 		display: block;
 		position: absolute;
@@ -52,7 +51,6 @@
 
 	input:focus {
 		outline: none;
-		background-color: var(--color-control-inactive);
 		border-bottom: 2px solid var(--color-accent);
 	}
 
