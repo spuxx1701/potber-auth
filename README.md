@@ -28,7 +28,7 @@ potber-auth is a semi-compliant OAuth authorization service built with <a href="
 
 ## <a name='HowtoUse'></a>How to Use
 
-`potber-auth` offers authentication according to the [OAuth 2.0 specification](https://datatracker.ietf.org/doc/html/rfc6749), specifically via the [Implicit flow](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3.2). Feel free to check out the specification or simply follow these steps:
+`potber-auth` offers authentication according to the [OAuth 2.0 specification](https://datatracker.ietf.org/doc/html/rfc6749), specifically via the [Implicit Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3.2) flow. Feel free to check out the specification or simply follow these steps:
 
 Start by creating a pull request that changes the [list of allowed redirect URIs](src/lib//config/allowed-redirect-uris.ts) and inserts a new entry representing your application. Make sure to follow the following syntax:
 
