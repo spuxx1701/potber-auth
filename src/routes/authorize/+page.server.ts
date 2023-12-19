@@ -71,7 +71,7 @@ export const actions = {
 				...appConfig.sessionCookieOptions,
 				expires: createExpiryDate(session.exp)
 			});
-			return responseData;
+			return { accessToken: access_token };
 		} catch (error) {
 			console.log(error);
 			return fail(401);
