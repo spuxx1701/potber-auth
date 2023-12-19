@@ -57,6 +57,10 @@
 		filter: var(--filter-control-hover);
 	}
 
+	select:focus {
+		outline: none;
+	}
+
 	label {
 		display: block;
 		position: absolute;
