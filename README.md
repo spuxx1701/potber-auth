@@ -23,7 +23,7 @@ potber-auth is a semi-compliant OAuth authorization service built with <a href="
 
 `potber-auth` offers authentication according to the [OAuth 2.0 specification](https://datatracker.ietf.org/doc/html/rfc6749), specifically via the [Implicit flow](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3.2). Feel free to check out the specification or simply follow these steps:
 
-1. Start by creating a pull request that changes the [list of allowed redirect URIs](src/lib//config/allowed-redirect-uris.ts) and inserts a new entry representing your application. Make sure to follow the following syntax:
+Start by creating a pull request that changes the [list of allowed redirect URIs](src/lib//config/allowed-redirect-uris.ts) and inserts a new entry representing your application. Make sure to follow the following syntax:
 
 ```js
 	{
@@ -41,7 +41,7 @@ Make sure that you include the entire URI (including the protocol, the domain na
 
 Tthe `redirect_uri` is a web page that you want `potber-auth` to redirect the user after a succesful login. On that page, you will be able to retrieve `token` and use it in your application.
 
-2. When you want your users to sign in, redirect them to `potber-auth`. Change `https://my-app.de/auth/redirect` whatever `redirect_uri` you're using.
+When you want your users to sign in, redirect them to `potber-auth`. Change `https://my-app.de/auth/redirect` whatever `redirect_uri` you're using.
 
 ```
 https://auth.potber.de/authorize?response_type=token&client_id=6c4defe9-4e08-420a-90ab-dbce69906fef&redirect_uri=https%3A%2F%2Fmy-app.de%2Fauth%2Fredirect
