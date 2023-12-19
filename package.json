@@ -1,7 +1,11 @@
 {
 	"name": "potber-auth",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"private": true,
+	"description": "An authentication service for forum.mods.de based on OAuth using potber-api.",
+	"repository": "https://github.com/spuxx1701/potber-auth",
+	"license": "GNU General Public License",
+	"author": "https://github.com/spuxx1701",
 	"scripts": {
 		"start": "vite dev",
 		"dev": "vite dev",
