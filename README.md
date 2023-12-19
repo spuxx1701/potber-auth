@@ -7,11 +7,13 @@ potber-auth is a semi-compliant OAuth authorization service built with <a href="
 
 <!-- vscode-markdown-toc -->
 
-- [How to use](#Howtouse)
-- [Parameters](#Parameters)
-- [Limitations and how it differs from the OAuth specification](#LimitationsandhowitdiffersfromtheOAuthspecification)
+- [How to Use](#HowtoUse)
+- [Limitations](#Limitations)
   - [No support for other flows besides `Implicit`](#NosupportforotherflowsbesidesImplicit)
   - [No support for parameters that have not been specified here](#Nosupportforparametersthathavenotbeenspecifiedhere)
+- [How to Contribute](#HowtoContribute)
+  - [Requirements](#Requirements)
+  - [Getting Started](#GettingStarted)
 
 <!-- vscode-markdown-toc-config
 	numbering=false
@@ -19,7 +21,7 @@ potber-auth is a semi-compliant OAuth authorization service built with <a href="
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
-## <a name='Howtouse'></a>How to use
+## <a name='HowtoUse'></a>How to Use
 
 `potber-auth` offers authentication according to the [OAuth 2.0 specification](https://datatracker.ietf.org/doc/html/rfc6749), specifically via the [Implicit flow](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3.2). Feel free to check out the specification or simply follow these steps:
 
@@ -99,3 +101,34 @@ As mentioned earlier, `potber-auth` is semi-compliant in regards to the OAuth sp
 ### <a name='Nosupportforparametersthathavenotbeenspecifiedhere'></a>No support for parameters that have not been specified here
 
 Any (optional) parameters [mentioned by the OAuth specification](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1) that have not been specifically mentioned in this document are not being supported.
+
+## <a name='HowtoContribute'></a>How to Contribute
+
+### <a name='Requirements'></a>Requirements
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en)
+
+### <a name='GettingStarted'></a>Getting Started
+
+Start by checking out this repository locally and installing dependencies:
+
+```bash
+git clone https://github.com/spuxx1701/potber-auth.git
+cd potber-auth
+npm install
+```
+
+You will also need to create a file in the project's root folder called `.env.local` with the following content (or possibly other values depending on your setup):
+
+```bash
+VITE_API_URL=https://api.potber.de
+VITE_API_LOGIN_ENDPOINT=/auth/login
+VITE_API_SESSION_ENDPOINT=/auth/session
+```
+
+You can then start your local development server by running:
+
+```bash
+npm start
+```
