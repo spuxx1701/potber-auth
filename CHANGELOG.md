@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- Provided a `staging` build at https://auth-test.potber.de.
+- Provided a `staging` build at https://test-auth.potber.de.
 
 ## [1.0.0] - 2023-12-19
 
