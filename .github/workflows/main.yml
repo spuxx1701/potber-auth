@@ -1,0 +1,14 @@
+name: main
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    uses: spuxx1701/ci-cd/.github/workflows/npm_lint.yml@v2.0
+
+  test:
+    uses: spuxx1701/ci-cd/.github/workflows/npm_test-coverage.yml@v2.0

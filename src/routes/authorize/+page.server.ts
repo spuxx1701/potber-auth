@@ -34,7 +34,7 @@ export const load = async ({ cookies, url, request }) => {
 	if (accessToken) {
 		const session = await getSession(accessToken);
 		return { session: session, accessToken: accessToken };
-	}
+	} else return {};
 };
 
 /** @type {import('./$types').Actions} */

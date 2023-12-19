@@ -1,5 +1,4 @@
 import { appConfig } from '$lib/config/app.config';
-import { fetchApi } from './server.utils';
 
 /**
  * Triggers a `fetch` request to the API server.

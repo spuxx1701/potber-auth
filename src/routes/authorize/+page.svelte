@@ -5,7 +5,6 @@
 	import { faRightToBracket, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 	import { enhance } from '$app/forms';
 	import SessionPanel from '$lib/features/session-panel/session-panel.svelte';
-	import { sleep } from '$lib/utils/misc.utils';
 	import { redirect } from '$lib/utils/client.utils';
 
 	/** @type {import('./$types').PageData} */
@@ -40,15 +39,15 @@
 				use:enhance={() => {
 					state = 'pending';
 					return async ({ result }) => {
-						switch (result.type) {
-							case 'success':
-								state = 'success';
-								accessToken = result.data.accessToken;
-								session = result.data.session;
-								continueWithLogin();
-								break;
-							default:
-								state = 'failed';
+						if (result.type === 'success' && result.data) {
+							state = 'success';
+							// @ts-ignore
+							accessToken = result.data.accessToken;
+							// @ts-ignore
+							session = result.data.session;
+							continueWithLogin();
+						} else {
+							state = 'failed';
 						}
 					};
 				}}
