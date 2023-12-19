@@ -4,10 +4,13 @@ node_modules
 /.svelte-kit
 /package
 .env
-.env.*
+.env.local
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# playwright
+/test-results
 
 # nvm
 /~.local

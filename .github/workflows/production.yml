@@ -1,0 +1,23 @@
+name: production
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  lint:
+    uses: spuxx1701/ci-cd/.github/workflows/npm_lint.yml@v2.1
+
+  test:
+    uses: spuxx1701/ci-cd/.github/workflows/npm_test-playwright.yml@v2.1
+
+  release_image:
+    needs:
+      - lint
+      - test
+    uses: spuxx1701/ci-cd/.github/workflows/release_image.yml@v2.0
+    with:
+      latest: true
+    secrets:
+      dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
