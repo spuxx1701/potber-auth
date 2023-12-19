@@ -44,7 +44,7 @@ Tthe `redirect_uri` is a web page that you want `potber-auth` to redirect the us
 2. When you want your users to sign in, redirect them to `potber-auth`. Change `https://my-app.de/auth/redirect` whatever `redirect_uri` you're using.
 
 ```
-https://auth.potber.de/authorize?response_type=token&redirect_uri=https%3A%2F%2Fmy-app.de%2Fauth%2Fredirect
+https://auth.potber.de/authorize?response_type=token&client_id=6c4defe9-4e08-420a-90ab-dbce69906fef&redirect_uri=https%3A%2F%2Fmy-app.de%2Fauth%2Fredirect
 ```
 
 > ℹ Note that you will likely need to encode your URI. For example in JavaScript, you can use [encodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent).

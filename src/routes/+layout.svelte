@@ -12,6 +12,10 @@
 </main>
 
 <style>
+	.app-title {
+		z-index: 1;
+	}
+
 	.app-title > h1 {
 		font-family: Pacifico;
 		font-size: 3rem;

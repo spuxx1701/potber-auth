@@ -16,9 +16,22 @@
 	 * @type {string}
 	 */
 	export let text;
+
+	/**
+	 * @type {(() => void) | undefined}
+	 */
+	export let onClick = undefined;
 </script>
 
-<button title={text} class={`variant-${variant}`} disabled={busy} {...$$restProps}>
+<button
+	title={text}
+	class={`variant-${variant}`}
+	disabled={busy}
+	on:click={() => {
+		if (onClick) onClick();
+	}}
+	{...$$restProps}
+>
 	{#if busy}
 		<Fa icon={faCircleNotch} spin={true} />
 	{:else}
@@ -68,7 +81,8 @@
 	}
 
 	.variant-secondary,
-	.variant-secondary * {
+	.variant-secondary *,
+	.variant-secondary :global(path) {
 		background-color: transparent;
 		color: var(--color-text-subtle);
 	}

@@ -41,7 +41,8 @@
 	label {
 		display: block;
 		position: absolute;
-		top: 1.6rem;
+		top: 50%;
+		transform: translateY(-50%);
 		left: 1rem;
 		transform-origin: left top;
 		user-select: none;
@@ -61,7 +62,7 @@
 
 	input:focus + label,
 	input:not(:placeholder-shown) + label {
-		transform: translateY(-1rem);
+		transform: translateY(-100%);
 		font-size: smaller;
 	}
 

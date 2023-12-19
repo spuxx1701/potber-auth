@@ -4,59 +4,78 @@
 	import Fa from 'svelte-fa';
 	import { faRightToBracket, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 	import { enhance } from '$app/forms';
+	import SessionPanel from '$lib/features/session-panel/session-panel.svelte';
 	import { sleep } from '$lib/utils/misc.utils';
+	import { redirect } from '$lib/utils/client.utils';
 
-	/**
-	 * @type {'failure' | 'success' |  'redirect' | 'error' | 'pending' | 'none'}
-	 */
-	$: state = 'none';
-	/**
-	 * @type {string | undefined}
-	 */
-	$: accessToken = undefined;
-	/**
-	 *@type {boolean}
-	 */
+	/** @type {import('./$types').PageData} */
+	export let data;
+
+	/** @type {Login.State} */
+	$: state = data.session && data.accessToken ? 'active' : 'none';
+
+	/** @type {App.Session | undefined} */
+	$: session = data.session;
+
+	/** @type {string } */
+	$: accessToken = data.accessToken ?? '';
+
+	/** @type {boolean} */
 	$: submitIsBusy = state === 'success' || state === 'pending';
+
+	export function continueWithLogin() {
+		redirect(accessToken, 1000);
+	}
 </script>
 
-<div class="login-container">
+<span class={`backdrop ${state}`} />
+<div class={`login-container`}>
 	<div class="upper-section">
-		<form
-			method="POST"
-			action="/login"
-			use:enhance={() => {
-				state = 'pending';
-				return async ({ result }) => {
-					state = result.type;
-					if (state === 'failure') {
-						document.documentElement.style.setProperty('--color-body', 'var(--color-error)');
-					} else if (state === 'success') {
-						document.documentElement.style.setProperty('--color-body', 'var(--color-success)');
-					} else {
-						document.documentElement.style.setProperty('--color-body', 'unset');
-					}
-				};
-			}}
-		>
-			<Input label="Username" type="text" name="username" required={true} />
-			<Input label="Passwort" type="password" name="password" required={true} />
-			<Button variant="primary" type="submit" text="Anmelden" busy={submitIsBusy}>
-				<Fa slot="icon" icon={faRightToBracket} />
-			</Button>
-		</form>
-		<p class="info-text">
-			{#if state === 'failure'}
-				Das hat leider nicht geklappt. Versuche es nochmal.
-			{:else if state === 'success'}
-				Du bist nun angemeldet. Du wirst in wenigen Momenten weitergeleitet...
-			{/if}
-		</p>
+		{#if session && accessToken}
+			<SessionPanel {session} {accessToken} />
+		{:else}
+			<form
+				method="POST"
+				action="?/login"
+				use:enhance={() => {
+					state = 'pending';
+					return async ({ result }) => {
+						switch (result.type) {
+							case 'success':
+								state = 'success';
+								accessToken = result.data.accessToken;
+								session = result.data.session;
+								continueWithLogin();
+								break;
+							default:
+								state = 'failed';
+						}
+					};
+				}}
+			>
+				<Input label="Username" type="text" name="username" required={true} />
+				<Input label="Passwort" type="password" name="password" required={true} />
+				<Button
+					variant="primary"
+					type="submit"
+					text={state === 'success' ? 'Du wirst gleich weitergeleitet...' : 'Anmelden'}
+					busy={submitIsBusy}
+				>
+					<Fa slot="icon" icon={faRightToBracket} />
+				</Button>
+				<p class="info-text">
+					{#if state === 'failed'}
+						Das hat leider nicht geklappt. Versuche es nochmal.
+					{/if}
+				</p>
+			</form>
+		{/if}
 	</div>
 
-	<Button variant="secondary" type="button" text="Mehr Informationen">
+	<a href="/about">
 		<Fa slot="icon" icon={faInfoCircle} />
-	</Button>
+		Mehr Informationen
+	</a>
 </div>
 
 <style>
@@ -66,6 +85,27 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+	}
+
+	.backdrop {
+		z-index: -1;
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+	}
+
+	.none,
+	.pending {
+		background-color: transparent;
+	}
+
+	.success,
+	.active {
+		background-color: var(--color-success);
+	}
+
+	.failed {
+		background-color: var(--color-error);
 	}
 
 	form {
@@ -91,5 +131,21 @@
 
 	.info-text:empty {
 		color: transparent;
+	}
+
+	a {
+		display: flex;
+		text-decoration: none;
+		height: var(--control-default-height);
+		align-items: center;
+		justify-content: center;
+	}
+
+	a :global(svg) {
+		margin-right: 0.5rem;
+	}
+
+	a :global(path) {
+		color: var(--color-text-subtle);
 	}
 </style>

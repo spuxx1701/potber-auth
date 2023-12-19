@@ -1,7 +1,4 @@
-/**
- * @type {{ name: string, id: string, allowedRedirectUrs: string[] }[]}
- */
-export const clients = [
+export const clients: App.Client[] = [
 	{
 		name: 'potber',
 		id: '45a14ddc-e3d3-4b5b-a45a-a04946974adc',
