@@ -14,8 +14,8 @@ potber-auth is a semi-compliant OAuth authorization service built with <a href="
 
 - [How to Use](#HowtoUse)
 - [Limitations](#Limitations)
-  - [No support for other flows besides `Implicit`](#NosupportforotherflowsbesidesImplicit)
-  - [No support for parameters that have not been specified here](#Nosupportforparametersthathavenotbeenspecifiedhere)
+  - [Unsupported Flows](#UnsupportedFlows)
+  - [Unsupported Optional Parameters](#UnsupportedOptionalParameters)
 - [How to Contribute](#HowtoContribute)
   - [Requirements](#Requirements)
   - [Getting Started](#GettingStarted)
@@ -99,11 +99,11 @@ If the response contains status code `200` and a body containing information abo
 
 As mentioned earlier, `potber-auth` is semi-compliant in regards to the OAuth specification. The following chapter describes its limitations as well as how and why it differs from the spec.
 
-### <a name='NosupportforotherflowsbesidesImplicit'></a>No support for other flows besides `Implicit`
+### <a name='UnsupportedFlows'></a>Unsupported Flows
 
-`potber-oauth` does not provide support for any OAuth flows besides `Implicit`. This means that more secure flows like `Authorization Code` are not available. The reason for this is that `potber-oauth` is a very niche usecase. The data it provides access to is not sensitive and attack vectors like MitM attacks are extremely unlikely. The benefit of the `Implicit` flow is that clients request the token directly, making it very convenient and simple to implement for both the authorization server (`potber-auth`) and the client.
+`potber-auth` does not provide support for any OAuth flows besides [Implicit Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3.2). This means that more secure flows like `Authorization Code` are not available. The reason for this is that `potber-auth` is a very niche usecase. The data it provides access to is not sensitive and attack vectors like MitM attacks are extremely unlikely. The benefit of the `Implicit Grant` flow is that clients request the token directly, making it very convenient and simple to implement for both the authorization server (`potber-auth`) and the client. `potber-auth` attempts to diminish the weaknesses of `Implicit Grant` by maintaining an allowlist for `redirect_uri`s.
 
-### <a name='Nosupportforparametersthathavenotbeenspecifiedhere'></a>No support for parameters that have not been specified here
+### <a name='UnsupportedOptionalParameters'></a>Unsupported Optional Parameters
 
 Any (optional) parameters [mentioned by the OAuth specification](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1) that have not been specifically mentioned in this document are not being supported.
 
