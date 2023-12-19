@@ -1,7 +1,6 @@
 <script>
 	import Button from '$lib/components/button/button.svelte';
 	import About from '$lib/features/about/about.svelte';
-	import { faGithub } from '@fortawesome/free-brands-svg-icons';
 	import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 	import Fa from 'svelte-fa';
