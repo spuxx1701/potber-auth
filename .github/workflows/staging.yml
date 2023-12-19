@@ -12,3 +12,11 @@ jobs:
 
   test:
     uses: spuxx1701/ci-cd/.github/workflows/npm_test-playwright.yml@v2.1
+
+  release_image:
+    needs:
+      - lint
+      # - test
+    uses: spuxx1701/ci-cd/.github/workflows/release_image.yml@v2.1
+    secrets:
+      dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
