@@ -6,7 +6,7 @@
 
 <p>
 	<b>potber-auth</b> ist ein auf
-	<a href="https://datatracker.ietf.org/doc/html/rfc6749" target="_blank">OAuth</a> basierender
+	<a href="https://datatracker.ietf.org/doc/html/rfc6749" target="_blank">OAuth 2.0</a> basierender
 	zentraler Authentifizierungsdienst für
 	<a href="https://forum.mods.de" target="_blank">forum.mods.de</a>.
 
@@ -17,6 +17,11 @@
 	Nutzer:innen gegenüber einer begrenzten Liste vertrauenswürdiger Anwendungen (z.B.
 	<a href="https://github.com/spuxx1701/potber-client" target="_blank">potber-client</a>) zu
 	authentifizieren.
+
+	<br />
+	<br />
+
+	Eine Anwendung, die potber-auth verwendet, erfährt dabei <b>niemals</b> Dein Passwort.
 
 	<br />
 	<br />
