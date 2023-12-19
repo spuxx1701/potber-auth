@@ -3,6 +3,10 @@
 	import { fade } from 'svelte/transition';
 </script>
 
+<svelte:head>
+	<title>potber-auth</title>
+</svelte:head>
+
 <main transition:fade>
 	<div class="app-title">
 		<h1>potber</h1>
