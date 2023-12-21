@@ -73,7 +73,6 @@ export const actions = {
 			});
 			return { accessToken: access_token };
 		} catch (error) {
-			console.log(error);
 			return fail(401);
 		}
 	}

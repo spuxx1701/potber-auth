@@ -36,7 +36,6 @@ export function getExpiresInSeconds(accessToken: string) {
 	const { exp } = parseAccessToken(accessToken);
 	const now = new Date().getTime();
 	const expiresIn = (exp * 1000 - now) / 1000;
-	console.log(expiresIn);
 }
 
 /**
