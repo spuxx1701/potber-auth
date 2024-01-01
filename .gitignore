@@ -11,6 +11,3 @@ vite.config.ts.timestamp-*
 
 # playwright
 /test-results
-
-# nvm
-/~.local
