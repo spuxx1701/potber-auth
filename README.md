@@ -42,7 +42,7 @@ Start by creating a pull request that changes the [list of allowed redirect URIs
 	}
 ```
 
-> [ℹ] `id` needs to be a newly generated `UUID` (Version 4). There are online generators where you can generate such an id, for example [this one](https://www.uuidgenerator.net/version4).
+> ℹ `id` needs to be a newly generated `UUID` (Version 4). There are online generators where you can generate such an id, for example [this one](https://www.uuidgenerator.net/version4).
 
 Make sure that you include the entire URI (including the protocol, the domain name and the entire path). Make sure that you get the details right (e.g. trailing slashes). If you need more than one URI allowlisted, make sure to include them all.
 
@@ -54,7 +54,7 @@ When you want your users to sign in, redirect them to `potber-auth`. This step i
 https://auth.potber.de/authorize?response_type=token&client_id=6c4defe9-4e08-420a-90ab-dbce69906fef&redirect_uri=https%3A%2F%2Fmy-app.com%2Fauth%2Fcallback
 ```
 
-> [ℹ] Note that you will likely need to encode your URI. For example in JavaScript, you can use [encodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent).
+> ℹ Note that you will likely need to encode your URI. For example in JavaScript, you can use [encodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent).
 
 Let's break down the **Authorization Request**:
 
@@ -91,7 +91,7 @@ Host: api.potber.de
 Authorization: Bearer ...
 ```
 
-> [ℹ] Note that this also applies to all other endpoints of `potber-api`. If you want to send an authenticated request, always include the token as shown here.
+> ℹ Note that this also applies to all other endpoints of `potber-api`. If you want to send an authenticated request, always include the token as shown here.
 
 If the response contains status code `200` and a body containing information about the session (like the username), the session is valid. If it contains `401`, the session is invalid or has expired.
 
