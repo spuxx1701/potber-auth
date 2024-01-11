@@ -46,7 +46,7 @@ Start by creating a pull request that changes the [list of allowed redirect URIs
 
 Make sure that you include the entire URI (including the protocol, the domain name and the entire path). Make sure that you get the details right (e.g. trailing slashes). If you need more than one URI allowlisted, make sure to include them all.
 
-Tthe `redirect_uri` is a web page that you want `potber-auth` to redirect the user after a succesful login. On that page, you will be able to retrieve `token` and use it in your application.
+The `redirect_uri` is a web page that you want `potber-auth` to redirect the user after a succesful login. On that page, you will be able to retrieve `token` and use it in your application.
 
 When you want your users to sign in, redirect them to `potber-auth`. This step is called the **Authorization Request**. Using the example from earlier, the request would look like this:
 
