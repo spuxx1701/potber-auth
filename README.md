@@ -33,13 +33,13 @@ potber-auth is a semi-compliant OAuth authorization service built with <a href="
 Start by creating a pull request that changes the [list of allowed redirect URIs](src/lib//config/allowed-redirect-uris.ts) and inserts a new entry representing your application. Make sure to follow the following syntax:
 
 ```js
-	{
-		name: 'my-app',
-		id: '6c4defe9-4e08-420a-90ab-dbce69906fef',
-		allowedRedirectUris: [
-			'https://my-app.com/auth/callback'
-		]
-	}
+{
+  name: 'my-app',
+  id: '6c4defe9-4e08-420a-90ab-dbce69906fef',
+  allowedRedirectUris: [
+    'https://my-app.com/auth/callback'
+  ]
+}
 ```
 
 > ℹ `id` needs to be a newly generated `UUID` (Version 4). There are online generators where you can generate such an id, for example [this one](https://www.uuidgenerator.net/version4).
