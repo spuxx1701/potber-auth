@@ -9,3 +9,11 @@ updates:
     directory: '/' # Location of package manifests
     schedule:
       interval: 'weekly'
+    automerge: true
+    target-branch: 'main'
+    labels:
+      - 'dependencies'
+      - 'automerge'
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
