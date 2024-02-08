@@ -8,5 +8,14 @@ export const clients: App.Client[] = [
 			'https://potber.de/auth/callback',
 			'https://www.potber.de/auth/callback'
 		]
+	},
+	{
+		name: 'mpe',
+		id: '2e216203-936a-4a75-94ea-307ab1ceb5f6',
+		allowedRedirectUris: [
+			'http://localhost:5000/auth',
+			'https://www.mods-mpe.de/auth',
+			'https://mods-mpe.de/auth'
+		]
 	}
 ];
