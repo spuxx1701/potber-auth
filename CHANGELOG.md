@@ -4,12 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
-## [UNRELEASED]
+## [1.1.0] - UNRELEASED
 
 ### Added
 
 - Implemented client-side tests with `playwright`.
 - Dependabot can now merge non-major version changes automatically.
+- Added `mpe` as a known client.
 
 ## [1.0.1] - 2023-12-21
 
