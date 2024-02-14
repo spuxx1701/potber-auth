@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { testWithMsw } from '../_msw';
+// import { testWithMsw } from '../_msw';
 
 const validRoutePath =
 	'/authorize?client_id=45a14ddc-e3d3-4b5b-a45a-a04946974adc&response_type=token&redirect_uri=https://potber.de/auth/callback';
