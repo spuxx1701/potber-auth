@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Dependabot can now merge non-major version changes automatically.
 - Added `mpe` as a known client.
 
+### Chores
+
+- chore(deps-dev): bump vite from 5.0.10 to 5.1.6
+
 ## [1.0.1] - 2023-12-21
 
 ### Fixed
