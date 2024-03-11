@@ -15,6 +15,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Chores
 
 - chore(deps-dev): bump vite from 5.0.10 to 5.1.6
+- chore(deps-dev): bump @sveltejs/adapter-auto from 3.0.0 to 3.1.1
+- chore(deps-dev): bump svelte-fa from 3.0.4 to 4.0.2
+- chore(deps-dev): bump @sveltejs/kit from 2.0.1 to 2.5.3
+- chore(deps-dev): bump @sveltejs/adapter-node from 2.0.0 to 5.0.1
 
 ## [1.0.1] - 2023-12-21
 
