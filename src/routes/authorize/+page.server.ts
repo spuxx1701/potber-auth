@@ -4,6 +4,7 @@ import { fetchApi } from '$lib/utils/server.utils.js';
 import { createExpiryDate } from '$lib/utils/misc.utils.js';
 import { getSession } from '$lib/utils/server.utils.js';
 import { error, fail } from '@sveltejs/kit';
+import { log } from '$lib/logging/index.js';
 
 /** @type {import('./$types').PageServerLoad} */
 export const load = async ({ cookies, url, request }) => {
@@ -73,7 +74,8 @@ export const actions = {
 			});
 			return { accessToken: access_token };
 		} catch (error) {
-			return fail(401);
+			log(error as string, { level: 'error', context: 'Login' });
+			return fail(500);
 		}
 	}
 };

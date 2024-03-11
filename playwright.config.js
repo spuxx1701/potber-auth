@@ -3,7 +3,7 @@ import { devices } from '@playwright/test';
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 const config = {
 	webServer: {
-		command: 'npm run build && npm run preview',
+		command: 'npm run serve-tests',
 		port: 4173
 	},
 	projects: [

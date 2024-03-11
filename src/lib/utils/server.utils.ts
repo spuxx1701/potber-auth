@@ -1,4 +1,6 @@
 import { appConfig } from '$lib/config/app.config';
+import { log } from '$lib/logging';
+import { createRequestId } from './misc.utils';
 
 /**
  * Triggers a `fetch` request to the API server.
@@ -17,7 +19,12 @@ export async function fetchApi(
 		'Content-Type': 'application/json'
 	};
 	if (options?.accessToken) headers['Authorization'] = `Bearer ${accessToken}`;
+	const requestId = createRequestId();
+	log(`Outgoing request [${requestId}]: ${request?.method ?? 'GET'} ${url}`, { context: 'Fetch' });
 	const response = await fetch(url, { headers, ...request });
+	log(`Incoming response [${requestId}]: ${response.status} ${response.statusText}`, {
+		context: 'Fetch'
+	});
 	return response;
 }
 
