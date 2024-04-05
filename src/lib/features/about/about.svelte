@@ -15,8 +15,8 @@
 
 	Er verwendet <a href="https://github.com/spuxx1701/potber-api" target="_blank">potber-api</a>, um
 	Nutzer:innen gegenüber einer begrenzten Liste vertrauenswürdiger Anwendungen (z.B.
-	<a href="https://github.com/spuxx1701/potber-client" target="_blank">potber-client</a>) zu
-	authentifizieren.
+	<a href="https://github.com/spuxx1701/potber-client" target="_blank">potber-client</a> und
+	<a href="https://www.mods-mpe.de/" target="_blank">MPE</a>) zu authentifizieren.
 
 	<br />
 	<br />

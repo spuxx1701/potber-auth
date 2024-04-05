@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [1.1.1] - 2024-04-05
+
+### Added
+
+- Added reference to [https://mods-mpe.de](https://mods-mpe.de) to the about page.
+
 ## [1.1.0] - 2024-03-11
 
 ### Added
