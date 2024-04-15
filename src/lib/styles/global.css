@@ -59,3 +59,7 @@ h1,
 b {
 	color: var(--color-text-highlighted);
 }
+
+svg {
+	max-height: 1rem;
+}

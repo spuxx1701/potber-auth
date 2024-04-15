@@ -9,6 +9,7 @@
 	"scripts": {
 		"start": "vite dev",
 		"dev": "vite dev",
+		"host": "vite dev --host",
 		"build": "vite build",
 		"preview": "vite preview",
 		"serve-tests": "vite build --mode test && ORIGIN=http://localhost:4173 node tests/server.js",
