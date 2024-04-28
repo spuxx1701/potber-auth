@@ -24,7 +24,10 @@ declare global {
 	}
 
 	namespace Login {
-		type State = 'active' | 'pending' | 'success' | 'failed' | 'none';
+		type State = {
+			status: 'active' | 'pending' | 'success' | 'failed' | 'none';
+			code?: number;
+		};
 	}
 
 	namespace Select {

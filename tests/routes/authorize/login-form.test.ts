@@ -27,7 +27,6 @@ test('should fail to log in', async ({ page }) => {
 	await page.getByLabel('Passwort').fill('Bar');
 	await page.getByLabel('Sitzungsdauer').selectOption({ label: 'Ein Tag' });
 	await page.getByText('Anmelden').click();
-	// await page.
 	const response = await page.waitForResponse((res) => {
 		return res.url().includes('authorize?/login');
 	});
@@ -44,7 +43,6 @@ test('should succeed to log in', async ({ page }) => {
 	await page.getByLabel('Passwort').fill('TestPassword');
 	await page.getByLabel('Sitzungsdauer').selectOption({ label: 'Ein Tag' });
 	await page.getByText('Anmelden').click();
-	// await page.
 	const response = await page.waitForResponse((res) => {
 		return res.url().includes('authorize?/login');
 	});
@@ -53,4 +51,24 @@ test('should succeed to log in', async ({ page }) => {
 	expect(type).toBe('success');
 	expect(status).toBe(200);
 	await expect(page.getByText('Du wirst gleich weitergeleitet...')).toBeVisible();
+});
+
+test("should fail due to the user's account being locked", async ({ page }) => {
+	await page.goto(validRoutePath);
+	await page.getByLabel('Username').fill('LockedUser');
+	await page.getByLabel('Passwort').fill('Bar');
+	await page.getByLabel('Sitzungsdauer').selectOption({ label: 'Ein Tag' });
+	await page.getByText('Anmelden').click();
+	const response = await page.waitForResponse((res) => {
+		return res.url().includes('authorize?/login');
+	});
+	const json = await response.json();
+	const { type, status } = json;
+	expect(type).toBe('failure');
+	expect(status).toBe(403);
+	await expect(
+		page.getByText(
+			'Dein Account ist permanent gesperrt. Permanent gesperrte Accounts können sich bei potber-auth nicht anmelden.'
+		)
+	).toBeVisible();
 });

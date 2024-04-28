@@ -61,7 +61,8 @@ export const actions = {
 			}
 		});
 		if (!response.ok) {
-			return fail(401);
+			if (response.status === 403) return fail(403);
+			else return fail(401);
 		}
 		const responseData = await response.json();
 		const { access_token } = responseData;

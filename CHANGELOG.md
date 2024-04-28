@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [1.2.0] - 2024-04-28
+
+### Added
+
+- Login requests that are turned down by potber-api due to the user being locked permanently are now being displayed properly.
+
 ## [1.1.1] - 2024-04-05
 
 ### Added

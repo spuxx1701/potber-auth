@@ -13,7 +13,7 @@
 	export let data;
 
 	/** @type {Login.State} */
-	$: state = data.session && data.accessToken ? 'active' : 'none';
+	$: state = data.session && data.accessToken ? { status: 'active' } : { status: 'none' };
 
 	/** @type {App.Session | undefined} */
 	$: session = data.session;
@@ -22,14 +22,14 @@
 	$: accessToken = data.accessToken ?? '';
 
 	/** @type {boolean} */
-	$: submitIsBusy = state === 'success' || state === 'pending';
+	$: submitIsBusy = state.status === 'success' || state === 'pending';
 
 	export function continueWithLogin() {
 		redirect(accessToken, 1000);
 	}
 </script>
 
-<span class={`backdrop ${state}`} />
+<span class={`backdrop ${state.status}`} />
 <div class={`login-container`}>
 	<div class="upper-section">
 		{#if session && accessToken}
@@ -42,14 +42,14 @@
 					state = 'pending';
 					return async ({ result }) => {
 						if (result.type === 'success' && result.data) {
-							state = 'success';
+							state = { status: 'success', code: 200 };
 							// @ts-ignore
 							accessToken = result.data.accessToken;
 							// @ts-ignore
 							session = result.data.session;
 							continueWithLogin();
 						} else {
-							state = 'failed';
+							state = { status: 'failed', code: result.status };
 						}
 					};
 				}}
@@ -65,14 +65,19 @@
 				<Button
 					variant="primary"
 					type="submit"
-					text={state === 'success' ? 'Du wirst gleich weitergeleitet...' : 'Anmelden'}
+					text={state.status === 'success' ? 'Du wirst gleich weitergeleitet...' : 'Anmelden'}
 					busy={submitIsBusy}
 				>
 					<Fa slot="icon" icon={faRightToBracket} />
 				</Button>
 				<p class="info-text">
-					{#if state === 'failed'}
-						Das hat leider nicht geklappt. Versuche es nochmal.
+					{#if state.status === 'failed'}
+						{#if state.code === 403}
+							Dein Account ist permanent gesperrt. Permanent gesperrte Accounts können sich bei
+							potber-auth nicht anmelden.
+						{:else}
+							Das hat leider nicht geklappt. Versuche es nochmal.
+						{/if}
 					{/if}
 				</p>
 			</form>
