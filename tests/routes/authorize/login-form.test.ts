@@ -26,10 +26,11 @@ test('should fail to log in', async ({ page }) => {
 	await page.getByLabel('Username').fill('Foo');
 	await page.getByLabel('Passwort').fill('Bar');
 	await page.getByLabel('Sitzungsdauer').selectOption({ label: 'Ein Tag' });
-	await page.getByText('Anmelden').click();
-	const response = await page.waitForResponse((res) => {
+	const responsePromise = page.waitForResponse((res) => {
 		return res.url().includes('authorize?/login');
 	});
+	await page.getByText('Anmelden').click();
+	const response = await responsePromise;
 	const json = await response.json();
 	const { type, status } = json;
 	expect(type).toBe('failure');
@@ -42,10 +43,11 @@ test('should succeed to log in', async ({ page }) => {
 	await page.getByLabel('Username').fill('TestUser');
 	await page.getByLabel('Passwort').fill('TestPassword');
 	await page.getByLabel('Sitzungsdauer').selectOption({ label: 'Ein Tag' });
-	await page.getByText('Anmelden').click();
-	const response = await page.waitForResponse((res) => {
+	const responsePromise = page.waitForResponse((res) => {
 		return res.url().includes('authorize?/login');
 	});
+	await page.getByText('Anmelden').click();
+	const response = await responsePromise;
 	const json = await response.json();
 	const { type, status } = json;
 	expect(type).toBe('success');
@@ -58,10 +60,11 @@ test("should fail due to the user's account being locked", async ({ page }) => {
 	await page.getByLabel('Username').fill('LockedUser');
 	await page.getByLabel('Passwort').fill('Bar');
 	await page.getByLabel('Sitzungsdauer').selectOption({ label: 'Ein Tag' });
-	await page.getByText('Anmelden').click();
-	const response = await page.waitForResponse((res) => {
+	const responsePromise = page.waitForResponse((res) => {
 		return res.url().includes('authorize?/login');
 	});
+	await page.getByText('Anmelden').click();
+	const response = await responsePromise;
 	const json = await response.json();
 	const { type, status } = json;
 	expect(type).toBe('failure');
