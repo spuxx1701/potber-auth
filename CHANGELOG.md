@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [UNRELEASED]
+
+### Chores
+
+- Updated dependencies.
+- Fixed an async statement that would sometimes break during tests.
+
 ## [1.2.0] - 2024-04-28
 
 ### Added
