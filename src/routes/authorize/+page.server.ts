@@ -30,11 +30,18 @@ export const load = async ({ cookies, url, request }) => {
 			"Invalid redirect_uri. Did you forget to specify that URI in 'src/lib/config/clients.config.ts'?"
 		);
 
-	// In case the user is currently signed in, there's no need for them to sign in again
+	// In case the user is currently signed in, we need to validate the session
 	const accessToken = cookies.get(appConfig.sessionCookieName);
 	if (accessToken) {
 		const session = await getSession(accessToken);
-		return { session: session, accessToken: accessToken };
+		if (!session) {
+			// If the session is invalid, we terminate it
+			cookies.delete(appConfig.sessionCookieName, { ...appConfig.sessionCookieOptions });
+			return {};
+		} else {
+			// If the session is valid, there's no need for them to sign in again
+			return { session: session, accessToken: accessToken };
+		}
 	} else return {};
 };
 
@@ -68,6 +75,7 @@ export const actions = {
 		const { access_token } = responseData;
 		try {
 			const session = await getSession(access_token);
+			if (!session) throw new Error("The session couldn't be retrieved.");
 			// Store the token in a cookie and return
 			cookies.set(appConfig.sessionCookieName, access_token, {
 				...appConfig.sessionCookieOptions,

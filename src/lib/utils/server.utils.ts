@@ -34,7 +34,7 @@ export async function fetchApi(
  * @param accessToken The access token.
  * @returns The session object.
  */
-export async function getSession(accessToken: string) {
+export async function getSession(accessToken: string): Promise<App.Session | null> {
 	const response = await fetchApi(appConfig.apiSessionEndpoint, {
 		accessToken
 	});
@@ -42,6 +42,6 @@ export async function getSession(accessToken: string) {
 		const session: App.Session = await response.json();
 		return session;
 	} else {
-		throw new Error('Unauthorized');
+		return null;
 	}
 }

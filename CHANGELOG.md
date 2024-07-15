@@ -4,11 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
-## [UNRELEASED]
+## [1.2.1] - 2024-07-15
 
 ### Fixed
 
 - Fixed an async statement that would sometimes break during tests.
+- Fixed an issue where an invalid session would not be terminated.
 
 ### Chores
 
