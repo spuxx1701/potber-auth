@@ -22,9 +22,6 @@ export const clients: App.Client[] = [
 	{
 		name: 'bbdb',
 		id: 'b2c97fa9-3f0e-482f-bd9f-4dd9ad746a68',
-		allowedRedirectUris: [
-			'http://localhost:8000/auth',
-			'https://bbdb.jomx.net/auth'
-		]
+		allowedRedirectUris: ['http://localhost:8000/auth', 'https://bbdb.jomx.net/auth']
 	}
 ];
