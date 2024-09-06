@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - Added `bbdb` as a client.
 
+### Fixed
+
+- Fixed a bug that would cause `expires_in` to be undefined in the token response.
+
 ## [1.2.1] - 2024-07-15
 
 ### Fixed
