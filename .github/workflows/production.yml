@@ -16,7 +16,7 @@ jobs:
     needs:
     - lint
     - test
-    uses: spuxx1701/ci-cd/.github/workflows/release_image.yml@v4.1.0
+    uses: spuxx1701/ci-cd/.github/workflows/docker_release_image.yml@v4.1.0
     with:
       latest: true
     secrets:
