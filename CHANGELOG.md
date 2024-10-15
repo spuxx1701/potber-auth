@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [UNRELEASED]
+
+### Chores
+
+- Images now support arm64.
+
 ## [1.3.0] - 2024-09-06
 
 ### Added

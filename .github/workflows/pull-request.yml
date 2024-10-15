@@ -6,7 +6,7 @@ on:
 
 jobs:
   lint:
-    uses: spuxx1701/ci-cd/.github/workflows/npm_lint.yml@v2.1
+    uses: spuxx1701/ci-cd/.github/workflows/npm_lint.yml@v4.1.0
 
   test:
-    uses: spuxx1701/ci-cd/.github/workflows/npm_test-playwright.yml@v2.1
+    uses: spuxx1701/ci-cd/.github/workflows/npm_test-playwright.yml@v4.1.0
