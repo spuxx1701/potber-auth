@@ -31,7 +31,7 @@
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.43.0",
 		"express": "^4.19.2",
-		"msw": "^2.2.14",
+		"msw": "^2.6.4",
 		"prettier": "^3.3.3",
 		"prettier-plugin-svelte": "^3.2.6",
 		"svelte": "^4.2.19",
