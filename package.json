@@ -19,7 +19,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@fortawesome/free-brands-svg-icons": "^6.5.2",
+		"@fortawesome/free-brands-svg-icons": "^6.7.0",
 		"@fortawesome/free-regular-svg-icons": "^6.5.2",
 		"@fortawesome/free-solid-svg-icons": "^6.6.0",
 		"@playwright/test": "^1.45.1",
