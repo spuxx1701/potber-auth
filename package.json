@@ -22,7 +22,7 @@
 		"@fortawesome/free-brands-svg-icons": "^6.7.1",
 		"@fortawesome/free-regular-svg-icons": "^6.7.1",
 		"@fortawesome/free-solid-svg-icons": "^6.6.0",
-		"@playwright/test": "^1.45.1",
+		"@playwright/test": "^1.49.0",
 		"@sveltejs/adapter-auto": "^3.2.4",
 		"@sveltejs/adapter-node": "^5.2.2",
 		"@sveltejs/kit": "^2.9.0",
