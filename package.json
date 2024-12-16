@@ -33,7 +33,7 @@
 		"express": "^4.19.2",
 		"msw": "^2.6.6",
 		"prettier": "^3.4.2",
-		"prettier-plugin-svelte": "^3.2.6",
+		"prettier-plugin-svelte": "^3.3.2",
 		"svelte": "^4.2.19",
 		"svelte-check": "^4.0.5",
 		"svelte-fa": "^4.0.2",
